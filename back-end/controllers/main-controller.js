@@ -1,7 +1,7 @@
 const db = require('../db');
 require("dotenv").config();
 
-const allProducts = async (req, res) => {
+const viewAllProducts = async (req, res) => {
     try {
         let sql = `SELECT * FROM product`;
         let query = db.query(sql, (err, results) => {
@@ -37,8 +37,22 @@ const viewCategories = async (req, res) => {
     }
 };
 
+
+const viewProducts = async (req, res) => {
+    try {
+        let sql = `SELECT * FROM product WHERE product.category_id = "${req.params.i}.id"`;
+        let query = db.query(sql, (err, results) => {
+            if (err) throw err;
+            res.json(results);
+        });
+    } catch (error) {
+        throw error;
+    }
+};
+
 module.exports = {
-    allProducts,
+    viewAllProducts,
     productDetails,
     viewCategories,
+    viewProducts,
 }
