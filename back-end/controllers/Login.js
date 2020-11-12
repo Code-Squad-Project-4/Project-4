@@ -27,14 +27,40 @@ const  register = async (req,res)=>{
       const newUser =`INSERT INTO users (user_name,company_name,adress,email,password,phone) VALUES('${user_name}','${company_name}','${adress}','${email}','${password}','${phone}');`
       connection.query(newUser,(err,result)=>{
           if(err) throw err;
-          //console.log(result);
-
       })
 
       
     res.json("Added")
     })
 }
+
+const login = async (req,res)=>{
+    let email=req.body.email;
+    
+
+    const query = await `SELECT * FROM users WHERE email ='${email}'`
+    connection.query(query,async(err,result)=>{
+        if(err) throw err;
+        
+        //check if there is user with the request data
+        if(result.length===1) {
+            
+            console.log(req.body.password);
+            console.log(result[0])
+            let password =await bcrypt.compare(req.body.password,result[0].password );
+            console.log(password)
+            if(password){
+                return res.json("Login successful")
+            } else{
+                return res.status(400).send("Invalid Email or password..");
+            }
+        }else{
+            return res.status(400).send("Invalid Email or password..");
+        }
+    })
+
+}
 module.exports={
     register,
+    login,
 }
