@@ -37,10 +37,21 @@ const viewCategories = async (req, res) => {
     }
 };
 
-
 const viewProducts = async (req, res) => {
     try {
-        let sql = `SELECT * FROM product WHERE product.category_id = "${req.params.i}.id"`;
+        let sql = `SELECT * FROM product INNER JOIN ${req.params.i} ON product.id = "${req.params.i}.id"`;
+        let query = db.query(sql, (err, results) => {
+            if (err) throw err;
+            res.json(results);
+        });
+    } catch (error) {
+        throw error;
+    }
+};
+
+const searchProducts = async (req, res) => {
+    try {
+        let sql = `SELECT * FROM product WHERE name LIKE '%'${req.params.i}'%'`;
         let query = db.query(sql, (err, results) => {
             if (err) throw err;
             res.json(results);
@@ -55,4 +66,5 @@ module.exports = {
     productDetails,
     viewCategories,
     viewProducts,
+    searchProducts,
 }
