@@ -15,7 +15,7 @@ const viewAllProducts = async (req, res) => {
 
 const productDetails = async (req, res) => {
     try {
-        let sql = `SELECT * FROM product WHERE name = ${req.params.id}`;
+        let sql = `SELECT * FROM product WHERE name='${req.params.id}'`;
         let query = db.query(sql, (err, results) => {
             if (err) throw err;
             res.json(results);
@@ -51,7 +51,19 @@ const viewProducts = async (req, res) => {
 
 const searchProducts = async (req, res) => {
     try {
-        let sql = `SELECT * FROM product WHERE name LIKE '%'${req.params.i}'%'`;
+        let sql = `SELECT * FROM product WHERE name LIKE '%${req.params.i}%'`;
+        let query = db.query(sql, (err, results) => {
+            if (err) throw err;
+            res.json(results);
+        });
+    } catch (error) {
+        throw error;
+    }
+};
+
+const discounted = async (req, res) => {
+    try {
+        let sql = `SELECT * FROM product WHERE newPrice IS NOT NULL`;
         let query = db.query(sql, (err, results) => {
             if (err) throw err;
             res.json(results);
@@ -67,4 +79,5 @@ module.exports = {
     viewCategories,
     viewProducts,
     searchProducts,
+    discounted,
 }
