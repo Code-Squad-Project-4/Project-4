@@ -3,10 +3,6 @@ const mainRouter = express.Router();
 const {viewAllProducts,productDetails,viewCategories,viewProducts,searchProducts,
   discounted,newProducts,customerOrders} = require('../controllers/main-controller')
 
-mainRouter.get("/", (req, res) => {
-  res.json("HELLO WORLD");
-});
-
 // View all products
 mainRouter.get("/Products", viewAllProducts);
 
