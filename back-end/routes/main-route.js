@@ -1,7 +1,7 @@
 const express = require("express");
 const mainRouter = express.Router();
-const {viewAllProducts,productDetails,viewCategories,viewProducts,
-  searchProducts,discounted,newProducts} = require('../controllers/main-controller')
+const {viewAllProducts,productDetails,viewCategories,viewProducts,searchProducts,
+  discounted,newProducts,customerOrders} = require('../controllers/main-controller')
 
 mainRouter.get("/", (req, res) => {
   res.json("HELLO WORLD");
@@ -27,5 +27,11 @@ mainRouter.get("/discounted",discounted);
 
 // View latest products added
 mainRouter.get("/newProducts/:i",newProducts);
+
+// View latest products added
+mainRouter.get("/orders/:i",customerOrders);
+
+// View latest products added
+mainRouter.get("/orders/:i",customerOrders);
 
 module.exports = mainRouter;

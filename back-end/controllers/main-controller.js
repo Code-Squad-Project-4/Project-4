@@ -85,6 +85,19 @@ const newProducts = async (req, res) => {
     }
 };
 
+const customerOrders = async (req, res) => {
+    try {
+        let sql = `SELECT * FROM order JOIN users ON order.customer_id = users.${req.params.i}`;
+        let query = db.query(sql, (err, results) => {
+            if (err) throw err;
+            res.json(results);
+        });
+    } catch (error) {
+        throw error;
+    }
+};
+
+
 module.exports = {
     viewAllProducts,
     productDetails,
@@ -93,4 +106,5 @@ module.exports = {
     searchProducts,
     discounted,
     newProducts,
+    customerOrders
 }
