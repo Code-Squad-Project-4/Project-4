@@ -39,7 +39,7 @@ const viewCategories = async (req, res) => {
 
 const viewProducts = async (req, res) => {
     try {
-        let sql = `SELECT * FROM product JOIN category ON product.category_id = "${req.params.i}"`;
+        let sql = `SELECT * FROM product WHERE product.category_id = "${req.params.i}"`;
         let query = db.query(sql, (err, results) => {
             if (err) throw err;
             res.json(results);
@@ -87,7 +87,7 @@ const newProducts = async (req, res) => {
 
 const customerOrders = async (req, res) => {
     try {
-        let sql = `SELECT * FROM order JOIN users ON order.customer_id = ${req.params.i}`;
+        let sql = `SELECT * FROM order WHERE order.customer_id = ${req.params.i}`;
         let query = db.query(sql, (err, results) => {
             if (err) throw err;
             res.json(results);
