@@ -11,9 +11,9 @@ const getAllProducts = (req, res) => {
 };
 
 const addNewProduct = (req, res) => {
-  query =
+  let query =
     "INSERT into product(name, price, description, newprice, quantity, seller_id, img_url, created_at, category_id,hide) values(?,?,?,?,?,?,?,?,?,?) ";
-  data = [
+  let data = [
     req.body.name,
     req.body.price,
     req.body.description,
@@ -35,8 +35,8 @@ const addNewProduct = (req, res) => {
 };
 
 const hideProduct = (req, res) => {
-  query = "update product set hide = 'yes' where id = ?";
-  data = [req.body.id];
+  let query = "update product set hide = 'yes' where id = ?";
+  let data = [req.body.id];
   db.query(query, data, (err, rows, fields) => {
     if (!err) {
       res.json("The product was hide");
@@ -57,8 +57,8 @@ const allhideProduct = (req, res) => {
 };
 
 const showProduct = (req, res) => {
-  query = "update product set hide = 'No' where id = ?";
-  data = [req.body.id];
+  let query = "update product set hide = 'No' where id = ?";
+  let data = [req.body.id];
   db.query(query, data, (err, rows, fields) => {
     if (!err) {
       res.json("The product was enable");
