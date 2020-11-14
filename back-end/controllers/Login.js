@@ -44,7 +44,6 @@ const  register = async (req,res)=>{
 
 const login = async (req,res)=>{
     let email=req.body.email;
-    
 
     const query = await `SELECT * FROM users WHERE email ='${email}'`
     connection.query(query,async(err,result)=>{

@@ -1,4 +1,5 @@
 const jwt = require("jsonwebtoken");
+const connection = require("../db");
 
 const authentication = async (req, res, next) => {
   const token = req.headers('x-auth')
@@ -14,13 +15,29 @@ const authentication = async (req, res, next) => {
 };
 
 const adminPermission = async (req,res,next)=>{
-  if(role_id !==1){return res.status(400).json("You don't have the permission")}
+  let email=req.body.email;
+
+  const query = await `SELECT * FROM users WHERE email ='${email}'`
+  connection.query(query,async(err,result)=>{
+        if(err) throw err;
+  if(result[0].role_id !==1){return res.status(400).json("You don't have the permission")}
   next();
+})
 };
+
 const sellerPermission = async (req,res,next)=>{
-  if(role_id !==2){return res.status(400).json("You don't have the permission")}
+  let email=req.body.email;
+
+  const query = await `SELECT * FROM users WHERE email ='${email}'`
+  connection.query(query,async(err,result)=>{
+        if(err) throw err;
+  if(result[0].role_id !==2){return res.status(400).json("You don't have the permission")}
   next();
+  })
 };
+
+
+
 // const customerPermission = async (req,res,next)=>{
 //   if(role_id !==3){return res.status(400).json("You don't have the permission")}
 //   next();
