@@ -1,4 +1,3 @@
-const { query } = require("./../../db");
 const db = require("./../../db");
 
 const getAllCategory = (req, res) => {
