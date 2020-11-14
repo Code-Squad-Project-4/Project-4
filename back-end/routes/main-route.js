@@ -1,7 +1,7 @@
 const express = require("express");
 const mainRouter = express.Router();
 const {viewAllProducts,productDetails,viewCategories,viewProducts,searchProducts,
-  discounted,newProducts,customerOrders} = require('../controllers/main-controller')
+  discounted,newProducts,customerOrders,addOrder,addSoldItem} = require('../controllers/main-controller')
 
 // View all products
 mainRouter.get("/Products", viewAllProducts);
@@ -13,7 +13,7 @@ mainRouter.get("/product/:id", productDetails);
 mainRouter.get("/categories", viewCategories);
 
 // View products by category
-mainRouter.get("/products/:i",viewProducts);
+mainRouter.get("/categories/:i",viewProducts);
 
 // Search for products
 mainRouter.get("/searchProducts/:i",searchProducts);
@@ -24,10 +24,13 @@ mainRouter.get("/discounted",discounted);
 // View latest products added
 mainRouter.get("/newProducts/:i",newProducts);
 
-// View latest products added
+// View my order history
 mainRouter.get("/orders/:i",customerOrders);
 
-// View latest products added
-mainRouter.get("/orders/:i",customerOrders);
+// Add order 
+mainRouter.post("/order/:i",addOrder);
+
+// Add add Sold Item 
+mainRouter.post("/SoldItem",addSoldItem);
 
 module.exports = mainRouter;
