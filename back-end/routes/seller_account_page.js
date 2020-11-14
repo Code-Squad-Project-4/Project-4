@@ -5,7 +5,10 @@ const {getUserURL,
   totalNumberOfItemsAvailable,
   totalNumberOfItemsSold,
   sellerRating,
-  getAllMyProducts} = require("../controllers/seller-account-controller");
+  getAllMyProducts,
+  updateProduct,
+  hideProduct,
+  showProduct} = require("../controllers/seller-account-controller");
 
    mainRouter.get("/seller_URL", getUserURL)
    mainRouter.get("/monthly_sales", getCurrentMonthlySales)
