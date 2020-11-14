@@ -4,7 +4,8 @@ const {getUserURL,
   getCurrentMonthlySales,
   totalNumberOfItemsAvailable,
   totalNumberOfItemsSold,
-  sellerRating} = require("../controllers/seller-account-controller");
+  sellerRating,
+  getAllMyProducts} = require("../controllers/seller-account-controller");
 
    mainRouter.get("/seller_URL", getUserURL)
    mainRouter.get("/monthly_sales", getCurrentMonthlySales)
