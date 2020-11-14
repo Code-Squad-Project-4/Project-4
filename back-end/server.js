@@ -1,7 +1,8 @@
 const express = require("express");
-const mainRouter = require("./routes/main-route");
-const cors = require("cors");
 require("dotenv").config();
+const mainRouter = require("./routes/main-route");
+const adminRouterProduct = require("./routes/admin_routes/product_route");
+const cors = require("cors");
 
 const db = require("./db");
 const app = express();
@@ -9,6 +10,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(mainRouter);
+app.use("/adminProduct", adminRouterProduct);
 
 app.get("/data", (req, res) => {
   db.query("select * from role", (err, rows, fields) => {
