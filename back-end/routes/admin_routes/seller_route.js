@@ -7,6 +7,7 @@ const {
 
 const adminRouterSeller = express.Router();
 
+
 adminRouterSeller.get("/", (req, res) => {
   getAllSeller(req, res);
 });
