@@ -1,8 +1,8 @@
 const express = require("express");
 const mainRouter = express.Router();
 
-const customers = require('./customers.route');
-mainRouter.use(customers); 
+const customersRouter = require('./customers.route');
+mainRouter.use(customersRouter); 
 
 module.exports = mainRouter;
 

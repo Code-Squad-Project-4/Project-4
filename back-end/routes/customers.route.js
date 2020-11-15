@@ -1,37 +1,41 @@
-const customers = require("express").Router();
+const customersRouter = require("express").Router();
 
-const {viewAllProducts,productDetails,viewCategories,viewProducts,searchProducts,discounted,newProducts}= require('../controllers/customers_products_controller')
-const {customerOrders, addOrder} = require('../controllers/customers_orders_controller')    
-const {addSoldItem } = require('../controllers/customers_SoldItem_controller')
+const {viewAllProducts,productDetails,viewCategories,viewProducts,searchProducts,discounted,newProducts}= require('../controllers/customers_controllers/products_controller')
+const {customerOrders, addOrder} = require('../controllers/customers_controllers/orders_controller')    
+const {addSoldItem } = require('../controllers/customers_controllers/SoldItem_controller')
+const {customerRating } = require('../controllers/customers_controllers/rating.controller')
 
 // View all products
-customers.get("/Products", viewAllProducts);
+customersRouter.get("/products", viewAllProducts);
 
 // View a specific product's details
-customers.get("/product/:id", productDetails);
+customersRouter.get("/product/:id", productDetails);
 
 // View all product categories
-customers.get("/categories", viewCategories);
+customersRouter.get("/categories", viewCategories);
 
 // View products by category
-customers.get("/categories/:i", viewProducts);
+customersRouter.get("/categories/:i", viewProducts);
 
 // Search for products
-customers.get("/searchProducts/:i", searchProducts);
+customersRouter.get("/searchProducts/:i", searchProducts);
 
 // View discounted products
-customers.get("/discounted", discounted);
+customersRouter.get("/discounted", discounted);
 
 // View latest products added
-customers.get("/newProducts/:i", newProducts);
+customersRouter.get("/newProducts/:i", newProducts);
 
 // View my order history
-customers.get("/orders/:i", customerOrders);
+customersRouter.get("/orders/:i", customerOrders);
 
 // Add order 
-customers.post("/order/:i", addOrder);
+customersRouter.post("/order/:i", addOrder);
 
 // Add add Sold Item 
-customers.post("/SoldItem", addSoldItem);
+customersRouter.post("/SoldItem", addSoldItem);
 
-module.exports = customers;
+// customers rating
+customersRouter.post("/ratingSeller", customerRating);
+
+module.exports = customersRouter;
