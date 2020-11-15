@@ -1,4 +1,4 @@
-const db = require('../db');
+const db = require('../../db');
 
 const viewAllProducts = async (req, res) => {
     try {
