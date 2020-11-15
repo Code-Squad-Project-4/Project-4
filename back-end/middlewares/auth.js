@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
-const connection = require("../db");
 
+//checking if login or not
 const authentication = async (req, res, next) => {
   const token = req.headers('x-auth')
   if (!token) {
@@ -14,34 +14,32 @@ const authentication = async (req, res, next) => {
   }
 };
 
+//Admin permission middleware
 const adminPermission = async (req,res,next)=>{
-  let email=req.body.email;
+  const token = res.headers('x-auth');    
+    await jwt.verify(token,process.env.SECRET),(err,result)=>{
+      if (err) throw err;
+      if(result.role_id===1){
+        next()
+      }else{
+         res.json("You don't have the permission")
+      }
+    }
+  };
 
-  const query = await `SELECT * FROM users WHERE email ='${email}'`
-  connection.query(query,async(err,result)=>{
-        if(err) throw err;
-  if(result[0].role_id !==1){return res.status(400).json("You don't have the permission")}
-  next();
-})
-};
+  //customer permission middleware
+  const sellerPermission = async (req,res,next)=>{
+    const token = res.headers('x-auth');    
+      await jwt.verify(token,process.env.SECRET),(err,result)=>{
+        if (err) throw err;
+        if(result.role_id===2){
+          next()
+        }else{
+           res.json("You don't have the permission")
+        }
+      }
+    }
 
-const sellerPermission = async (req,res,next)=>{
-  let email=req.body.email;
-
-  const query = await `SELECT * FROM users WHERE email ='${email}'`
-  connection.query(query,async(err,result)=>{
-        if(err) throw err;
-  if(result[0].role_id !==2){return res.status(400).json("You don't have the permission")}
-  next();
-  })
-};
-
-
-
-// const customerPermission = async (req,res,next)=>{
-//   if(role_id !==3){return res.status(400).json("You don't have the permission")}
-//   next();
-// };
 
     
 

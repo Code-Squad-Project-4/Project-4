@@ -38,14 +38,14 @@ const  register = async (req,res)=>{
       connection.query(newUser,(err,result)=>{if(err) throw err});
 
       // if everything is good get this res..
-      res.json("Added")
+      res.json("Your account has been successfully created.")
     })
 };
 
 const login = async (req,res)=>{
     let email=req.body.email;
-
     const query = await `SELECT * FROM users WHERE email ='${email}'`
+
     connection.query(query,async(err,result)=>{
         if(err) throw err;
         
@@ -55,6 +55,7 @@ const login = async (req,res)=>{
             if(password){
                 const payload = {
                     id:result[0].id,
+                    role_id:result[0].role_id
                 };
                 const options ={
                     expiresIn:process.env.TOKEN_EXPIRATION
