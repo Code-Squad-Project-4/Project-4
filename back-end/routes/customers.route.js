@@ -1,8 +1,8 @@
-const express = require("express");
-const customers = express.Router();
+const customers = require("express").Router();
 
-const {viewAllProducts, productDetails, viewCategories, viewProducts, searchProducts,
-    discounted, newProducts, customerOrders, addOrder, addSoldItem } = require('../controllers/main-controller')
+const {viewAllProducts,productDetails,viewCategories,viewProducts,searchProducts,discounted,newProducts}= require('../controllers/customers_products_controller')
+const {customerOrders, addOrder} = require('../controllers/customers_orders_controller')    
+const {addSoldItem } = require('../controllers/customers_SoldItem_controller')
 
 // View all products
 customers.get("/Products", viewAllProducts);
