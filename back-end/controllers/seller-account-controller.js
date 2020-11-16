@@ -86,17 +86,21 @@ const updateProduct = (req, res) => {
 
 
 const hideProduct = (req, res) => {
-    let sql = `UPDATE product SET is_hidden = 1  WHERE seller_id = ${req.params.id}`
+    console.log("Product id: ",req.params.id)
+    console.log("Seller id: ",req.body.seller_id)
+    let sql = `UPDATE product SET hide = "Yes"  WHERE id = ${req.params.id} AND seller_id = ${req.body.seller_id}`
     let query = db.query(sql, (err, result) => {
         if (err) throw err
         console.log("hideProduct called")
-        res.send("hideProduct called")
-        // res.json(result)
+        // res.send("hideProduct called")
+        res.json(result)
     })
 }
 
 const showProduct = (req, res) => {
-    let sql = `UPDATE product SET is_hidden = 0  WHERE seller_id = ${req.params.id}`
+    console.log("Product id: ",req.params.id)
+    console.log("Seller id: ",req.body.seller_id)
+    let sql = `UPDATE product SET hide = "No"  WHERE id = ${req.params.id} AND seller_id = ${req.body.seller_id}`
     let query = db.query(sql, (err, result) => {
         if (err) throw err
         console.log("showProduct called")
