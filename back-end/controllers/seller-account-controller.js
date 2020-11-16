@@ -108,12 +108,12 @@ const showProduct = (req, res) => {
 const addProduct = (req, res) => {
     console.log(req.body)
     let sql = `INSERT INTO product (name, price, description, newprice,  quantity, seller_id, img_url, category_id) 
-    VALUES (${req.body.name}, ${req.body.price}, ${req.body.description}, ${req.body.newprice}, ${req.body.quantity}, ${req.params.id}, ${req.body.img_url}, ${req.body.category_id})`
+    VALUES ("${req.body.name}", "${req.body.price}", "${req.body.description}", "${req.body.newprice}", "${req.body.quantity}", "${req.params.id}", "${req.body.img_url}", "${req.body.category_id}")`
     let query = db.query(sql, (err, result) => {
         if (err) throw err
         console.log("addProduct called")
-        res.send("addProduct called")
-        // res.json(result)
+        // res.send("addProduct called")
+        res.json(result)
     })
 }
 
