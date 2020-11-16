@@ -7,6 +7,7 @@ const adminRouterCustomer = require("./routes/admin_routes/customer_route");
 const adminRouterSeller = require("./routes/admin_routes/seller_route");
 const adminRouterOrder = require("./routes/admin_routes/order_route");
 const adminRouterRating = require("./routes/admin_routes/rating_route");
+const adminRouterRevenue = require("./routes/admin_routes/revenue_rolles");
 const cors = require("cors");
 
 const db = require("./db");
@@ -21,6 +22,7 @@ app.use("/adminCustomer", adminRouterCustomer);
 app.use("/adminSeller", adminRouterSeller);
 app.use("/adminOrder", adminRouterOrder);
 app.use("/adminRating", adminRouterRating);
+app.use("/adminRevenue", adminRouterRevenue);
 
 app.get("/data", (req, res) => {
   db.query("select * from role", (err, rows, fields) => {
