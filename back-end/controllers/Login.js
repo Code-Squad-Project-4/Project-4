@@ -9,7 +9,7 @@ const  register = async (req,res)=>{
      let company_name = req.body.company_name;
      let adress = req.body.adress;
      let email =req.body.email;
-     let password =req.body.password;
+     let password =req.body.password;  
      let phone = req.body.phone;
      let role_id =''
 

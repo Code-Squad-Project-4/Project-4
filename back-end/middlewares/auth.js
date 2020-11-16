@@ -27,12 +27,25 @@ const adminPermission = async (req,res,next)=>{
     }
   };
 
-  //customer permission middleware
+  //seller permission middleware
   const sellerPermission = async (req,res,next)=>{
     const token = res.headers('x-auth');    
       await jwt.verify(token,process.env.SECRET),(err,result)=>{
         if (err) throw err;
         if(result.role_id===2){
+          next()
+        }else{
+           res.json("You don't have the permission")
+        }
+      }
+    }
+
+  //customer permission
+  const customerPermission = async (req,res,next)=>{
+    const token = res.headers('x-auth');    
+      await jwt.verify(token,process.env.SECRET),(err,result)=>{
+        if (err) throw err;
+        if(result.role_id===3){
           next()
         }else{
            res.json("You don't have the permission")
@@ -46,6 +59,7 @@ const adminPermission = async (req,res,next)=>{
 module.exports = {
   authentication,
   adminPermission,
-  sellerPermission
+  sellerPermission,
+  customerPermission
   }
 
