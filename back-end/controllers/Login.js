@@ -14,10 +14,10 @@ const  register = async (req,res)=>{
      let role_id =''
 
      //setting the role for the registered account
-     if(req.params.role==="seller"){
-        role_id =2
-     }else if(req.params.role==="customer"){
-        role_id =3
+     if(req.params.role ==="seller"){
+        role_id = 2
+     }else if(req.params.role ==="customer"){
+        role_id = 3
      };
 
      //Checking if there is  same data in database with the request data
