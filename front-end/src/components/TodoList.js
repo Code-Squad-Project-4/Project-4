@@ -3,7 +3,6 @@ import "../../src/App.css";
 import TodoItem from './TodoItem';
 
 const TodoList = (props) => {
-  console.log('products :', props.products)
   const todoTasks = props.products.map((e, i) => (
     <TodoItem oneProduct={e} i = {i} product={props.product}/>
   ));

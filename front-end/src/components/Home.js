@@ -1,39 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import TodoList from "./TodoList";
-import { BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import CategoriesList from "./CategoriesList"
- 
- const Home = (props) => {
-     const [categories,setCategories] = useState([]);
-     useEffect(()=>{getCategories()},[])
 
-     const getCategories = async () => {
-        try {
-          const res = await axios.get('http://localhost:5000/categories')
-          console.log('getCategories :', res.data)
-          await setCategories(res.data);
-        }
-        catch (err) {
-          console.log('ERR: ', err);
-        };
-      }
-
+const Home = (props) => {
     return (
         <div className="home">
             <Route exact path="/">
                 <div className="firstHome">
                     <div className="categories">
-                    <CategoriesList categories={categories}/>
+                        <CategoriesList categories={props.categories} category={props.category} categoryId={props.categoryId} />
                     </div>
                     <div className="Featured">
                         <div className="mainFeatured"></div>
                         <div className="topFeatured">
-                        <div className="itemFeatured"></div>
-                        <div className="itemFeatured" ></div>
-                        <div className="itemFeatured" ></div>
-                        <div className="itemFeatured" ></div>
-                        <div className="itemFeatured" ></div>
+                            <div className="itemFeatured"></div>
+                            <div className="itemFeatured" ></div>
+                            <div className="itemFeatured" ></div>
+                            <div className="itemFeatured" ></div>
+                            <div className="itemFeatured" ></div>
                         </div>
                     </div>
                     <div className="discount">

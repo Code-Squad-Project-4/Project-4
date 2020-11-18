@@ -56,37 +56,39 @@ li a:hover {
   border: rgb(12, 12, 11) solid;
 }
 
-.discount{
-  font-size: 60px ;
-background-color: rgb(77, 72, 36);
+.discount {
+  font-size: 50px;
+  background-color: black;
+  color: white;
 }
+
 .home {
   display: grid;
-  grid-template-rows: 1fr 2fr;
+  grid-template-rows: 1fr 3fr;
 }
 
-.Featured{
+.Featured {
   display: grid;
   grid-template-rows: 3fr 1fr;
- }
+}
 
- .mainFeatured{
+.mainFeatured {
   display: grid;
   border: rgb(12, 12, 11) solid;
-  }
+}
 
- .topFeatured{
+.topFeatured {
   display: grid;
   grid-template-columns: auto auto auto auto auto;
- }
+}
 
- .itemFeatured{
+.itemFeatured {
   border: rgb(12, 12, 11) solid;
- }
+}
 
-.firstHome{
+.firstHome {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr ;
+  grid-template-columns: 1fr 4fr 1fr;
 }
 .dollar {
   display: inline;
@@ -111,13 +113,36 @@ background-color: rgb(77, 72, 36);
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
- 
-.descriptionProduct{
+
+.descriptionProduct {
   display: grid;
   grid-template-rows: 12fr 1fr;
 }
 
-.infoProduct{
+.infoProduct {
   display: grid;
   grid-template-rows: auto;
+}
+
+.categories {
+  display: grid;
+  border: black solid;
+}
+
+.mainCategory {
+  border: black solid;
+  text-align: center;
+  align-items: center;
+  justify-items: center;
+}
+.categories-list {
+  display: grid;
+  grid-template-rows: 1fr 3fr;
+  border-color: black solid;
+}
+
+.category-item {
+  display: grid;
+  grid-template-rows: auto;
+  border-color: black solid;
 }
