@@ -1,97 +1,123 @@
 body {
-    background-color: rgb(197, 115, 48);
-  }
-  .navBar {
-    display: inline;
-  }
-  
-  ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-  }
-  
-  li {
-    float: right;
-  }
-  
-  li a {
-    display: inline;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  }
-  
-  li a:hover {
-    background-color: #111;
-  }
-  
-  .about {
-    display: grid;
-    margin: 3%;
-    padding: 3%;
-  }
-  
-  .info {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
-  
-  .infoCard {
-    display: grid;
-    grid-template-rows: 1.5fr 1fr;
-  }
-  
-  .infoPhoto {
-    display: grid;
-    margin: 10px 20px 0px 0px;
-    border: rgb(12, 12, 11) solid;
-  }
-  .generalInfo {
-    display: grid;
-    margin: 0px 20px 0px 0px;
-    border: rgb(12, 12, 11) solid;
+  background-color: rgb(197, 115, 48);
+}
+.navBar {
+  display: inline;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: right;
+}
+
+li a {
+  display: inline;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+
+.about {
+  display: grid;
+  margin: 3%;
+  padding: 3%;
+}
+
+.info {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.infoCard {
+  display: grid;
+  grid-template-rows: 1.5fr 1fr;
+}
+
+.infoPhoto {
+  display: grid;
+  margin: 10px 20px 0px 0px;
+  border: rgb(12, 12, 11) solid;
+}
+.generalInfo {
+  display: grid;
+  margin: 0px 20px 0px 0px;
+  border: rgb(12, 12, 11) solid;
+}
+
+.discount{
+  font-size: 60px ;
+background-color: rgb(77, 72, 36);
+}
+.home {
+  display: grid;
+  grid-template-rows: 1fr 2fr;
+}
+
+.Featured{
+  display: grid;
+  grid-template-rows: 3fr 1fr;
+ }
+
+ .mainFeatured{
+  display: grid;
+  border: rgb(12, 12, 11) solid;
   }
 
-  .home {
-    display: grid;
-    grid-template-rows: 1fr 2fr;
-  }
+ .topFeatured{
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+ }
 
-  .dollar {
-    display: inline;
-    vertical-align: text-top;
-  }
-  
-  .product-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
-  
-  .product-item {
-    display: grid;
-    grid-template-rows: 8fr 1fr;
-  }
-  
-  .oldPrice {
-    text-decoration: line-through;
-  }
-  
-  .specificProduct {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-   
-  .descriptionProduct{
-    display: grid;
-    grid-template-rows: 12fr 1fr;
-  }
-  
-  .infoProduct{
-    display: grid;
-    grid-template-rows: auto;
-  }
+ .itemFeatured{
+  border: rgb(12, 12, 11) solid;
+ }
 
+.firstHome{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr ;
+}
+.dollar {
+  display: inline;
+  vertical-align: text-top;
+}
+
+.product-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.product-item {
+  display: grid;
+  grid-template-rows: 8fr 1fr;
+}
+
+.oldPrice {
+  text-decoration: line-through;
+}
+
+.specificProduct {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+ 
+.descriptionProduct{
+  display: grid;
+  grid-template-rows: 12fr 1fr;
+}
+
+.infoProduct{
+  display: grid;
+  grid-template-rows: auto;
+}
