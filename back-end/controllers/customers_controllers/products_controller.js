@@ -59,37 +59,11 @@ const searchProducts = async (req, res) => {
         throw error;
     }
 };
-
-const discounted = async (req, res) => {
-    try {
-        let sql = `SELECT * FROM product WHERE newprice IS NOT NULL`;
-        let query = db.query(sql, (err, results) => {
-            if (err) throw err;
-            res.json(results);
-        });
-    } catch (error) {
-        throw error;
-    }
-};
-
-const newProducts = async (req, res) => {
-    try {
-        let sql = `SELECT * FROM product WHERE created_at > '${req.params.i}' `;
-        let query = db.query(sql, (err, results) => {
-            if (err) throw err;
-            res.json(results);
-        });
-    } catch (error) {
-        throw error;
-    }
-};
-
+ 
 module.exports = {
     viewAllProducts,
     productDetails,
     viewCategories,
     viewProducts,
     searchProducts,
-    discounted,
-    newProducts,
 }
