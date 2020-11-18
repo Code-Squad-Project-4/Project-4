@@ -1,29 +1,16 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
+import axios from 'axios';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import NavBar from "./components/NavBar";
 
-// Class component
-export default class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-  render() {
-    return (
-      <div>
-        <h1>HELLO WORLD</h1>
-      </div>
-    );
-  }
-}
-
-/* 
-// functional component
 const App = () => {
   return (
-    <div>
-      <h1>HELLO WORLD</h1>
-    </div>
+    <Router>
+      <NavBar />
+
+    </Router>
   );
 };
+
 export default App;
-*/
