@@ -1,8 +1,12 @@
 const express = require("express");
 const mainRouter = express.Router();
 
-mainRouter.get("/", (req, res) => {
-  res.json("HELLO WORLD");
-});
+const customersRouter = require('./customers.route');
+mainRouter.use(customersRouter); 
 
 module.exports = mainRouter;
+
+
+
+
+
