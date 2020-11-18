@@ -6,6 +6,8 @@ import NavBar from "./components/NavBar";
 import About from "./components/About";
 import SearchItems from "./components/SearchItems";
 import SearchProducts from "./components/SearchProducts";
+import Product from "./components/Product";
+
 
 const App = () => {  
   const [info, setInfo] = useState([
@@ -58,7 +60,7 @@ const App = () => {
       console.log('ERR: ', err);
     };
   };
-  
+
   return (
     <Router>
       <NavBar />
@@ -69,6 +71,7 @@ const App = () => {
 
       <Route path="/about" render={(props) => <About {...props} {...info} />} />
       <Route path="/searchProducts" render={(props) => <SearchProducts {...props} {...searchP} search={searchProducts} product={oneProduct} />} />
+      <Route path="/product/:id" render={(props) => <Product {...props} products={products} />} />
 
     </Router>
   );

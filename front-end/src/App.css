@@ -55,3 +55,43 @@ body {
     margin: 0px 20px 0px 0px;
     border: rgb(12, 12, 11) solid;
   }
+
+  .home {
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+  }
+
+  .dollar {
+    display: inline;
+    vertical-align: text-top;
+  }
+  
+  .product-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  
+  .product-item {
+    display: grid;
+    grid-template-rows: 8fr 1fr;
+  }
+  
+  .oldPrice {
+    text-decoration: line-through;
+  }
+  
+  .specificProduct {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+   
+  .descriptionProduct{
+    display: grid;
+    grid-template-rows: 12fr 1fr;
+  }
+  
+  .infoProduct{
+    display: grid;
+    grid-template-rows: auto;
+  }
+
