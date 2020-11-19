@@ -133,8 +133,8 @@ const App = (props) => {
       <Route path="/discount" render={(props) => <Discounted {...props} {...discountedProducts} product={oneProduct} />} />
       <Route path="/searchProducts" render={(props) => <SearchProducts {...props} {...searchP} search={searchProducts} product={oneProduct} />} />
       <Route path="/product/:id" render={(props) => <Product {...props} products={products} />} />
-      <Route path="/category/:i" render={(props) => <Category {...props} />} />
-      {/* <Route path="/category/:i" render={(props) => <Category {...props} category={category} />} /> */}
+      {/* <Route path="/category/:i" render={(props) => <Category {...props} />} /> */}
+      <Route path="/category/:i" render={(props) => <Category {...props} category={category} />} />
       {/* <CategoriesItem setUsername={setCategory} /> */}
       {/* <Category category={category} /> */}
     </Router>

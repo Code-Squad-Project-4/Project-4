@@ -1,6 +1,8 @@
 body {
-  background-color: rgb(131, 62, 131);
+  background-color: rgb(126, 104, 250);
 }
+/* background-color: rgb(131, 62, 131); */
+
 .navBar {
   display: inline;
 }

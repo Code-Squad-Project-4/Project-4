@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
+import Product from "./Product";
 
 const Category = (props) => {
     const arr = []
@@ -9,21 +10,18 @@ const Category = (props) => {
     });
 
     return (
-        <>
+        <Router>
             {
                 arr.map((e) => {
-                    return <Router>
-                        <Link to={`/category/${props.name}`}>
+                    return <Link to={`/product/${e.name}`}>
                         <div className="infoPhoto"></div>
                     <div><h6 className="dollar">{"$"}</h6>{e.price}</div>
-                    <div>{e.name}</div>
+                    <div onClick={() =>  <Product />}>{e.name}</div>
                         </Link>
-                    </Router>
-
                 })
             }
 
-        </>
+        </Router>
     )
 }
 
