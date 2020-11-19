@@ -4,7 +4,7 @@ import Product from "./Product";
 
 import "../../src/App.css";
 
-const TodoItem = (props) => {
+const ProductItem = (props) => {
     const { oneProduct, i ,product} = props;
     const { name, price } = oneProduct;
      return (
@@ -20,6 +20,6 @@ const TodoItem = (props) => {
     );
 }
 
-export default TodoItem
+export default ProductItem
 
 

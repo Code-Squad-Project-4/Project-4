@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import TodoList from "./TodoList";
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import ProductList from "./ProductList";
 import CategoriesList from "./CategoriesList"
 import FreeDelivery from "./FreeDelivery"
 
@@ -23,7 +23,7 @@ const Home = (props) => {
                     </div>
                 </div>
                 <div >
-                    <TodoList products={props.products} product={props.product} />
+                    <ProductList products={props.products} product={props.product} />
                 </div>
             </Route>
         </div>

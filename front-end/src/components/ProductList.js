@@ -1,10 +1,10 @@
 import React from 'react';
 import "../../src/App.css";
-import TodoItem from './TodoItem';
+import ProductItem from './ProductItem';
 
-const TodoList = (props) => {
+const ProductList = (props) => {
   const todoTasks = props.products.map((e, i) => (
-    <TodoItem oneProduct={e} i = {i} product={props.product}/>
+    <ProductItem oneProduct={e} i = {i} product={props.product}/>
   ));
   return (
     <div className="product-list">
@@ -13,4 +13,4 @@ const TodoList = (props) => {
   );
 }
 
-export default TodoList
+export default ProductList
