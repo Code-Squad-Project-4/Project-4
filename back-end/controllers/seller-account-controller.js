@@ -5,7 +5,7 @@ const db = require("../db");
 const getUserURL = (req, res) => {
     console.log("user_id:", req.params.id)
     // let sql = `SELECT logo_url FROM users WHERE id = ${req.params.id}`
-    let sql = `SELECT user_name FROM users WHERE id = ${req.params.id}`
+    let sql = `SELECT logo_url FROM users WHERE id = ${req.params.id}`
     let query = db.query(sql, (err, result) => {
         if (err) throw err
         console.log("getUserURL called")
@@ -73,8 +73,9 @@ const getAllMyProducts = (req, res) => {
 }
 
 const updateProduct = (req, res) => {
-    console.log("Product id :", req.body)
-    let sql = `UPDATE product SET name = "${req.body.name}", price = "${req.body.price}", description = "${req.body.description}", newprice = "${req.body.newprice}", quantity = ${req.body.quantity}, img_url = "${req.body.img_url}", category_id = ${req.body.category_id}  WHERE id = ${req.body.id}`
+    console.log("Seller Id :", req.params.id)
+    console.log("Req.body :", req.body)
+    let sql = `UPDATE product SET name = "${req.body.name}", price = "${req.body.price}", description = "${req.body.description}", newprice = "${req.body.newprice}", quantity = ${req.body.quantity}, img_url = "${req.body.img_url}", category_id = ${req.body.category_id}  WHERE id= "${req.body.id}" AND seller_id= ${req.params.id}`
     let query = db.query(sql, (err, result) => {
         if (err) throw err
         console.log("updateProduct called")
@@ -87,13 +88,13 @@ const updateProduct = (req, res) => {
 
 const hideProduct = (req, res) => {
     console.log("Product id: ",req.params.id)
-    console.log("Seller id: ",req.body.seller_id)
+    console.log("Body: ",req.body)
     let sql = `UPDATE product SET hide = "Yes"  WHERE id = ${req.params.id} AND seller_id = ${req.body.seller_id}`
     let query = db.query(sql, (err, result) => {
         if (err) throw err
         console.log("hideProduct called")
-        // res.send("hideProduct called")
-        res.json(result)
+        res.send("Product hidden")
+        // res.json(result)
     })
 }
 
@@ -110,9 +111,11 @@ const showProduct = (req, res) => {
 }
 
 const addProduct = (req, res) => {
+    console.log("addProduct has been called")
+    console.log(req.params.id)
     console.log(req.body)
-    let sql = `INSERT INTO product (name, price, description, newprice,  quantity, seller_id, img_url, category_id) 
-    VALUES ("${req.body.name}", "${req.body.price}", "${req.body.description}", "${req.body.newprice}", "${req.body.quantity}", "${req.params.id}", "${req.body.img_url}", "${req.body.category_id}")`
+    let sql = `INSERT INTO product (name, price, description, newprice, quantity, seller_id, img_url, category_id, hide) 
+    VALUES ("${req.body.name}", "${req.body.price}", "${req.body.description}", "${req.body.newprice}", ${req.body.quantity}, ${req.params.id}, "${req.body.img_url}", ${req.body.category_id}, "${req.body.hide}")`
     let query = db.query(sql, (err, result) => {
         if (err) throw err
         console.log("addProduct called")
@@ -130,7 +133,7 @@ const addProduct = (req, res) => {
 //   };
 
 const salesHistory = (req, res) => {
-    let sql = `SELECT p.name, p.description, si.price FROM product p JOIN sold_item si WHERE p.id = si.product_id AND p.seller_id = ${req.params.id}`
+    let sql = `SELECT p.id, p.name, p.description, si.price FROM product p JOIN sold_item si WHERE p.id = si.product_id AND p.seller_id = ${req.params.id}`
     let query = db.query(sql, (err, result) => {
         if (err) throw err
         console.log("salesHistory called")

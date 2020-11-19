@@ -18,7 +18,7 @@ const {getUserURL,
    mainRouter.get("/items_sold/:id", totalNumberOfItemsSold)
    mainRouter.get("/rating/:id", sellerRating)
    mainRouter.get("/products/:id", getAllMyProducts)
-   mainRouter.put("/products/update/", updateProduct)
+   mainRouter.put("/products/update/:id", updateProduct)
    mainRouter.put("/products/hide/:id", hideProduct) //send {seller_id : id} in body and customer id in params
    mainRouter.put("/products/show/:id", showProduct) //send {seller_id : id} in body and customer id in params
    mainRouter.post("/products/add/:id", addProduct)
