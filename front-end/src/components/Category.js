@@ -3,24 +3,27 @@ import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom
 
 const Category = (props) => {
     const arr = []
+    console.log('props.category :', props)
     Object.keys(props.category).map((k, i) => {
         arr.push(props.category[i]);
     });
 
     return (
-        <Router>
+        <>
             {
                 arr.map((e) => {
-                    return <Link to={`/category/${props.name}`}>
-                    <div className="category-item" >
+                    return <Router>
+                        <Link to={`/category/${props.name}`}>
                         <div className="infoPhoto"></div>
-                        <div><h6 className="dollar">{"$"}</h6>{e.price}</div>
-                        <div>{e.name}</div>
-                    </div>
-                    </Link>
+                    <div><h6 className="dollar">{"$"}</h6>{e.price}</div>
+                    <div>{e.name}</div>
+                        </Link>
+                    </Router>
+
                 })
             }
-        </Router>
+
+        </>
     )
 }
 

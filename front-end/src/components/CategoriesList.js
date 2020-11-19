@@ -2,8 +2,9 @@ import React from 'react';
 import CategoriesItem from "./CategoriesItem"
 
 const CategoriesList = (props) => {
+    console.log('categories.props :', props)
     const arrCategories = props.categories.map((e, i) => (
-        <CategoriesItem oneCategory={e} i={i} category={props.category} categoryId={props.categoryId} />
+        <CategoriesItem oneCategory={e} k={i} categories={props.categories} category={props.category} categoryId={props.categoryId} />
     ));
     return (
         <div className="categories-list" >

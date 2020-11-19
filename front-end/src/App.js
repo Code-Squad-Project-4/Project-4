@@ -10,10 +10,10 @@ import SearchProducts from "./components/SearchProducts";
 import About from "./components/About";
 import Discounted from "./components/Discounted";
 import Product from "./components/Product";
-import Category from "./components/Category";
 import CategoriesItem from "./components/CategoriesItem";
+import Category from "./components/Category";
 
-const App = () => {
+const App = (props) => {
   const [products, setProducts] = useState([]);
   const [product, setProduct] = useState([]);
   const [discountedProducts, setDiscountedProducts] = useState([]);
@@ -31,8 +31,8 @@ const App = () => {
   useEffect(() => { discount() }, []);
   useEffect(() => { searchProducts() }, []);
   useEffect(() => { oneProduct() }, []);
-  useEffect(() => { productsCategory() }, []);
   useEffect(() => { getCategories() }, [])
+  useEffect(() => { productsCategory() }, []);
 
   const getAllProducts = async () => {
     try {
@@ -97,8 +97,8 @@ const App = () => {
       console.log('ERR: ', err);
     };
   };
-
-  return (
+ 
+   return (
     <Router>
 
       <NavBar />
@@ -112,9 +112,10 @@ const App = () => {
       <Route path="/discount" render={(props) => <Discounted {...props} {...discountedProducts} product={oneProduct} />} />
       <Route path="/searchProducts" render={(props) => <SearchProducts {...props} {...searchP} search={searchProducts} product={oneProduct} />} />
       <Route path="/product/:id" render={(props) => <Product {...props} products={products} />} />
-      {/* <Route path="/category/:i" render={(props) => <Category {...props} categories={category} />} /> */}
-      {/* <Route path="/" render={(props) => <CategoriesItem {...props} categoryId={productsCategory} />} /> */}
-
+      <Route path="/category/:i" render={(props) => <Category {...props}/>} />
+      {/* <Route path="/category/:i" render={(props) => <Category {...props} category={category} />} /> */}
+      {/* <CategoriesItem setUsername={setCategory} /> */}
+      {/* <Category category={category} /> */}
     </Router>
   );
 };

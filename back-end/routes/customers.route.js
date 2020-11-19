@@ -1,10 +1,10 @@
 const customersRouter = require("express").Router();
 
-const {viewAllProducts,productDetails,viewCategories,viewProducts,searchProducts,discounted,newProducts}= require('../controllers/customers_controllers/products_controller')
+const {viewAllProducts,productDetails,viewCategories,viewProducts,searchProducts}= require('../controllers/customers_controllers/products_controller')
+const { discounted,newProducts,freeDelivery } = require('../controllers/customers_controllers/offers_controller') 
 const {customerOrders, addOrder} = require('../controllers/customers_controllers/orders_controller')    
 const {addSoldItem } = require('../controllers/customers_controllers/SoldItem_controller')
 const {customerRating } = require('../controllers/customers_controllers/rating.controller')
-
 // View all products
 customersRouter.get("/products", viewAllProducts);
 
@@ -37,5 +37,8 @@ customersRouter.post("/SoldItem", addSoldItem);
 
 // customers rating
 customersRouter.post("/ratingSeller", customerRating);
+
+// View freeDelivery products
+customersRouter.get("/freeDelivery", freeDelivery);
 
 module.exports = customersRouter;
