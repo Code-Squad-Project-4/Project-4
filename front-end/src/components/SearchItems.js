@@ -17,7 +17,6 @@ const SearchItems = (props) => {
      };
 
     return (
-        <div>
         <div className="new-item">
             <input
                 type="text"
@@ -25,7 +24,6 @@ const SearchItems = (props) => {
                 onChange={handleInputChange}
             />
             <button className="button" onClick={searchItems}><MdSearch />search</button>
-        </div>
         </div>
     );
 };

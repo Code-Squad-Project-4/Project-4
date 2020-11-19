@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(197, 115, 48);
+  background-color: rgb(131, 62, 131);
 }
 .navBar {
   display: inline;
@@ -29,6 +29,10 @@ li a:hover {
   background-color: #111;
 }
 
+.new-item {
+  font-display: grid; 
+ }
+
 .about {
   display: grid;
   margin: 3%;
@@ -57,9 +61,9 @@ li a:hover {
 }
 
 .discount {
-  font-size: 50px;
-  background-color: black;
+  font-size: 30px;
   color: white;
+  align-items: center;
 }
 
 .home {

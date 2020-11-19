@@ -17,22 +17,17 @@ const App = (props) => {
   const [products, setProducts] = useState([]);
   const [product, setProduct] = useState([]);
   const [discountedProducts, setDiscountedProducts] = useState([]);
-  const [category, setCategory] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [category, setCategory] = useState([]);
   const [searchP, setSearchP] = useState([]);
+  const [free, setFree] = useState([]);
+
   const [info, setInfo] = useState([
     { name: 'Alaa Khalila', position: 'Full-Stack Dev', phone: '0795846987', email: 'Alaa@gmail.com' },
     { name: 'Fadi Al-fuqaha', position: 'Full-Stack Dev', phone: '0785846987', email: 'Fadi@gmail.co' },
     { name: 'Omar Alkhatib', position: 'Full-Stack Dev', phone: '0775846987', email: 'Omar@gmail.com' },
     { name: 'Shehadeh Almomani', position: 'Full-Stack Dev', phone: '0795846988', email: 'Shehadeh@gmail.com' }
   ]);
-
-  useEffect(() => { getAllProducts() }, []);
-  useEffect(() => { discount() }, []);
-  useEffect(() => { searchProducts() }, []);
-  useEffect(() => { oneProduct() }, []);
-  useEffect(() => { getCategories() }, [])
-  useEffect(() => { productsCategory() }, []);
 
   const getAllProducts = async () => {
     try {
@@ -97,22 +92,48 @@ const App = (props) => {
       console.log('ERR: ', err);
     };
   };
- 
-   return (
+
+  const getFreeProducts = async () => {
+    try {
+      const res = await axios.get('http://localhost:5000/freeDelivery')
+      console.log('res.data.free :', res.data)
+      await setFree(res.data);
+    }
+    catch (err) {
+      console.log('ERR: ', err);
+    };
+  };
+
+  useEffect(() => {
+    getFreeProducts()
+    getAllProducts()
+    discount()
+    searchProducts()
+    oneProduct()
+    getCategories()
+    productsCategory()
+  }, []);
+
+  return (
     <Router>
 
+      <div>
       <NavBar />
+      </div>
+
       <div>
         <Link to="/searchProducts"><SearchItems search={searchProducts} /></Link>
       </div>
 
-      <Home products={products} product={product} categories={categories} category={category} categoryId={productsCategory} />
+      <div>
+      <Home products={products} product={product} categories={categories} category={category} categoryId={productsCategory} free={free} />
+      </div>
 
       <Route path="/about" render={(props) => <About {...props} {...info} />} />
       <Route path="/discount" render={(props) => <Discounted {...props} {...discountedProducts} product={oneProduct} />} />
       <Route path="/searchProducts" render={(props) => <SearchProducts {...props} {...searchP} search={searchProducts} product={oneProduct} />} />
       <Route path="/product/:id" render={(props) => <Product {...props} products={products} />} />
-      <Route path="/category/:i" render={(props) => <Category {...props}/>} />
+      <Route path="/category/:i" render={(props) => <Category {...props} />} />
       {/* <Route path="/category/:i" render={(props) => <Category {...props} category={category} />} /> */}
       {/* <CategoriesItem setUsername={setCategory} /> */}
       {/* <Category category={category} /> */}
@@ -121,3 +142,8 @@ const App = (props) => {
 };
 
 export default App;
+
+
+
+
+
