@@ -38,15 +38,16 @@
   
   .display_container {
     grid-area: main;
+    display: flex;
     background-color: var(--main-grey-color);
     display: flex;
     justify-content: space-evenly;
   }
   
-  .display {
+  /* .display {
     display: grid;
     justify-content: space-between;
-  }
+  } */
   .app footer {
     grid-area: foot;
     background-color: var(--main-grey-color);
@@ -65,7 +66,7 @@
       
   }
 
-.product {
+/* .product {
      display: inline-flex;
      justify-content: stretch;
 
@@ -76,14 +77,14 @@
       float: right;
       height: 1.5rem;
       width: 6rem;
-}
+} */
 
 .dashboard {
   display: grid;
 }
 
 .history div{
-  border: solid blueviolet thin;
+  border: solid rgb(228, 225, 225) thin;
   display: flex;
 }
 
@@ -100,4 +101,28 @@
   display: flex;
   border: solid rgb(228, 225, 225) thin;
   justify-content: space-between;
+}
+
+.visibleProduct {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(152, 191, 214);
+}
+
+.hiddenProducts {
+  display: flex;
+  justify-content: space-between;
+}
+
+.visibleProduct button {
+  float: right;
+}
+
+
+.hiddenProducts button {
+  float: right;
+}
+
+.editButton {
+  width: 8rem;
 }

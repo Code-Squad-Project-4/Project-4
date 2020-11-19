@@ -21,7 +21,7 @@ const Product = (props) => {
         {props.oneProduct.description}
         </span>
         <span>
-        <button className ="button" >UPDATE</button>
+        <button className ="button"><Link to = {{pathname: "/edit", id: props.oneProduct.id}}>UPDATE </Link></button>
         <button className ="button" onClick = {props.hideProduct.bind(this, props.oneProduct.id)}>HIDE</button>
         </span>
     </div>) } else { 

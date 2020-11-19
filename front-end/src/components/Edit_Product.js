@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Redirect, Link } from 'react-router-dom';
 
 const EditProduct = (props) => {
 console.log("EditProduct id :", props.location.id)
@@ -75,7 +76,7 @@ const _id = JSON.stringify(props.location.id)
         <div><span>Product Img URL : </span><input placeholder = "Img_url" onChange = {imgUrlHandler}></input></div>
         <div><span>Product Category Id : </span><input placeholder = "Category Id" onChange = {categoryIdHandler}></input></div>
         <div><span>Product Hide : </span><input placeholder = "Hide : No / Yes" onChange = {hideHandler}></input></div>
-        <div><button onClick = {edit}>Edit</button></div>
+        <div><button className = "editButton" onClick = {edit}>Send Changes</button><button className = "editButton"><Link to ="/display">Cancel</Link></button></div>
         </div>
     </div>
     );
