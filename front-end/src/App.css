@@ -57,6 +57,7 @@ input::-webkit-inner-spin-button {
     cursor: pointer;
     transition-duration: 0.5s;
     border-radius: 5px;
+    
 }
 
 .card button:hover{
@@ -74,4 +75,19 @@ input::-webkit-inner-spin-button {
 }
 .card h5 span:hover{
     color: #D33F8D;
+}
+
+.card h4 span{
+    color: red;
+}
+.check{
+    display: flex;
+    align-items: center;
+    margin-right: 120px;
+}
+.check input{
+    margin-right: 5px;
+    width: 20px;
+    
+    
 }
