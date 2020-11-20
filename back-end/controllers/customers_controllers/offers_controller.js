@@ -40,4 +40,4 @@ module.exports = {
     discounted,
     newProducts,
     freeDelivery,
-}
+} 

@@ -22,6 +22,7 @@ app.use(cors());
 app.use(express.json());
 app.use(mainRouter);
 
+
 app.use(loginRouter);
 
 app.get("/data", (req, res) => {
@@ -33,6 +34,7 @@ app.get("/data", (req, res) => {
     }
   });
 });
+
 
 app.use("/adminProduct", adminRouterProduct);
 app.use("/adminCategory", adminRouterCategory);

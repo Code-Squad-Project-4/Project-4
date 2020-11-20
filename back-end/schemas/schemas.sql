@@ -118,7 +118,8 @@ INSERT INTO sold_item (order_id,Product_id,price,created_at) values
 (5,4,1700,now()), 
 (5,5,1700,now()) 
 
-INSERT INTO Product( name,price,description,newprice, quantity, seller_id,img_url,created_at,category_id ,delivery) values
+INSERT INTO Product( name,price,description,newprice, quantity, seller_id,img_url,created_at,category_id,delivery ) values
+
 ("office laptops",600,"CORi5,4GRAM,GTX 1070,1TB HDD",null,5,2,"//logo.clearbit.com",now(),2),
 ("Windows Laptops",800,"ORi7,4GRAM,GTX 1070,1TB HDD",null,5,2,"//logo.clearbit.com",now(),2),
 ("Tower desktops",500,"ORi3,4GRAM,GTX 1070,1TB HDD",null,5,2,"//logo.clearbit.com",now(),3),
@@ -130,6 +131,9 @@ INSERT INTO Product( name,price,description,newprice, quantity, seller_id,img_ur
 ("Huawei mate 40 pro",800,"6.8-inch OLED display with a 90HZ refresh rate, Kirin 9000 processor, 8GB RAM with 256GB storage combo, and 4400mAh battery. There is a triple-camera setup on the back with a 50MP main sensor, while the selfie shooter is 13MP",null,5,2,"//logo.clearbit.com",now(),1),
 ("Huawei P40 pro",700,"5G support, and 40-watt fast charging (both wired and wireless). Under the hood, the phone is powered by Huawei's own Kirin 990 chip and a battery cell as big as 4200mAh",null,5,2,"//logo.clearbit.com",now(),1)
 
+
+INSERT INTO Product( name,price,description,newprice, quantity, seller_id,img_url,created_at,category_id ,delivery) values
+("T-shirt",10,"made in turkey",null,5,2,"//logo.clearbit.com",now(),4,0)
 ("Product A",500," Lorem ipsum dolor sit amet et delectus accommodare his consul copiosae legendos at vix ad putent delectus delicata",null,6,3,"//logo.clearbit.com",now(),1,5),
 ("Product B",500," Lorem ipsum dolor sit amet et delectus accommodare his consul copiosae legendos at vix ad putent delectus delicata",null,7,3,"//logo.clearbit.com",now(),2,5),
 ("Product C",500," Lorem ipsum dolor sit amet et delectus accommodare his consul copiosae legendos at vix ad putent delectus delicata",null,8,3,"//logo.clearbit.com",now(),3,5),
@@ -142,3 +146,4 @@ INSERT INTO Product( name,price,description,newprice, quantity, seller_id,img_ur
 ("Product J",500," Lorem ipsum dolor sit amet et delectus accommodare his consul copiosae legendos at vix ad putent delectus delicata",300,5,5,"//logo.clearbit.com",now(),5,0),
 ("Product K",500," Lorem ipsum dolor sit amet et delectus accommodare his consul copiosae legendos at vix ad putent delectus delicata",300,4,5,"//logo.clearbit.com",now(),5,0),
 ("Product L",500," Lorem ipsum dolor sit amet et delectus accommodare his consul copiosae legendos at vix ad putent delectus delicata",300,3,5,"//logo.clearbit.com",now(),4,0)
+
