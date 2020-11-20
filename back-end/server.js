@@ -16,6 +16,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(mainRouter);
+
 app.use("/adminProduct", adminRouterProduct);
 app.use("/adminCategory", adminRouterCategory);
 app.use("/adminCustomer", adminRouterCustomer);
