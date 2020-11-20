@@ -126,3 +126,252 @@
 .editButton {
   width: 8rem;
 }
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card{
+    width: 400px;
+   height: 700px;
+   border: 1px solid #ffffff;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   background-color: #ffffff;
+   border-radius: 5px;
+   font-family: 'Raleway', sans-serif;
+
+
+}
+
+.card input{
+    width: 300px;
+    height: 60px;
+    background-color: #E6E6E6;
+    border: none;
+    margin: 5px 0 5px 0;
+    font-size: 20px;
+    padding-left: 15px;
+    border-radius: 2px;
+    outline-color: #AD4EE8;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.card h1{
+    margin: 70px 0 40px 0;
+    
+
+}
+
+.card button{
+    margin-top: 30px;
+    width: 300px;
+    height: 60px;
+    background-color: #D33F8D;
+    border: none;
+    color: #ffffff;
+    font-size: 20px;
+    cursor: pointer;
+    transition-duration: 0.5s;
+    border-radius: 5px;
+    
+}
+
+.card button:hover{
+    background-color: #150623;
+}
+
+.card h5 {
+    margin-top: 8px;
+    color: silver;
+}
+
+.card h5 span{
+    border-bottom: silver solid 1px;
+    cursor: pointer;
+}
+.card h5 span:hover{
+    color: #D33F8D;
+}
+
+.card h4 span{
+    color: red;
+}
+.check{
+    display: flex;
+    align-items: center;
+    margin-right: 120px;
+}
+.check input{
+    margin-right: 5px;
+    width: 20px;
+    
+    
+}
+
+body {
+  background-color: rgb(126, 104, 250);
+}
+/* background-color: rgb(131, 62, 131); */
+
+.navBar {
+  display: inline;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: right;
+}
+
+li a {
+  display: inline;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+
+.new-item {
+  font-display: grid; 
+ }
+
+.about {
+  display: grid;
+  margin: 3%;
+  padding: 3%;
+}
+
+.info {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.infoCard {
+  display: grid;
+  grid-template-rows: 1.5fr 1fr;
+}
+
+.infoPhoto {
+  display: grid;
+  margin: 10px 20px 0px 0px;
+  border: rgb(12, 12, 11) solid;
+}
+.generalInfo {
+  display: grid;
+  margin: 0px 20px 0px 0px;
+  border: rgb(12, 12, 11) solid;
+}
+
+.discount {
+  font-size: 30px;
+  color: white;
+  align-items: center;
+}
+
+.home {
+  display: grid;
+  grid-template-rows: 1fr 3fr;
+}
+
+.Featured {
+  display: grid;
+  grid-template-rows: 3fr 1fr;
+}
+
+.mainFeatured {
+  display: grid;
+  border: rgb(12, 12, 11) solid;
+}
+
+.topFeatured {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+}
+
+.itemFeatured {
+  border: rgb(12, 12, 11) solid;
+}
+
+.firstHome {
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+}
+.dollar {
+  display: inline;
+  vertical-align: text-top;
+}
+
+.product-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.product-item {
+  display: grid;
+  grid-template-rows: 8fr 1fr;
+}
+
+.oldPrice {
+  text-decoration: line-through;
+}
+
+.specificProduct {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.descriptionProduct {
+  display: grid;
+  grid-template-rows: 12fr 1fr;
+}
+
+.infoProduct {
+  display: grid;
+  grid-template-rows: auto;
+}
+
+.categories {
+  display: grid;
+  border: black solid;
+}
+
+.mainCategory {
+  border: black solid;
+  text-align: center;
+  align-items: center;
+  justify-items: center;
+}
+.categories-list {
+  display: grid;
+  grid-template-rows: 1fr 3fr;
+  border-color: black solid;
+}
+
+.category-item {
+  display: grid;
+  grid-template-rows: auto;
+  border-color: black solid;
+}
+
