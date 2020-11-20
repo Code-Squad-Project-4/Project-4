@@ -22,6 +22,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use("/seller", mainRouter);
 app.use(mainRouter);
 app.use(loginRouter);
 
