@@ -20,14 +20,18 @@ const  register = async (req,res)=>{
         role_id =3
      };
 
+
      //Checking if there is  same data in database with the request data
     const query = await `SELECT * FROM users WHERE email ='${email}' OR  user_name = '${user_name}' OR company_name='${company_name}' `;
     connection.query(query,async(err,result)=>{
+
+        console.log(result)
        if(err) throw err;
        if(result.length===1){
-            if(result[0].email===email) return res.status(400).send("Email is used..");
-            if(result[0].user_name===user_name)return res.status(400).send("User name is used..");
-            if(result[0].company_name===company_name) return res.status(400).send("Company name is used..");
+            if(result[0].email===email) return res.json("Email is used..");
+            if(result[0].user_name===user_name)return res.json("User name is used..");
+            if(result[0].company_name===company_name) return res.json("Company name is used..");
+
        };
 
       //hashing the password 
@@ -65,9 +69,11 @@ const login = async (req,res)=>{
                 token =jwt.sign(payload,process.env.SECRET,options);
                 res.header('x-auth',token).json(token);
             } else{
-                return res.status(400).send("Invalid Email or password..");
+
+                return res.json("Invalid Email or password..");
             }
-        }else return res.status(400).send("Invalid Email or password..")               
+        }else return res.json("Invalid Email or password..")               
+
     })
 
 };

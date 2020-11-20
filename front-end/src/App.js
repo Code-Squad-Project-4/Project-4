@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import axios from 'axios';
@@ -116,7 +117,7 @@ const App = (props) => {
 
   return (
     <Router>
-
+      
       <div>
       <NavBar />
       </div>
@@ -135,6 +136,7 @@ const App = (props) => {
       <Route path="/product/:id" render={(props) => <Product {...props} products={products} />} />
       {/* <Route path="/category/:i" render={(props) => <Category {...props} />} /> */}
       <Route path="/category/:i" render={(props) => <Category {...props} category={category} />} />
+      <Route exact path="/" <LoginApp />} />
       {/* <CategoriesItem setUsername={setCategory} /> */}
       {/* <Category category={category} /> */}
     </Router>

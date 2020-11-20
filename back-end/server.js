@@ -1,6 +1,8 @@
 const express = require("express");
 require("dotenv").config();
 const mainRouter = require("./routes/main-route");
+
+
 const loginRouter = require("./routes/login-r");
 const cors = require("cors");
 
@@ -23,6 +25,20 @@ app.use(express.json());
 app.use(mainRouter);
 app.use(loginRouter);
 
+
+app.use(loginRouter);
+
+app.get("/data", (req, res) => {
+  db.query("select * from role", (err, rows, fields) => {
+    if (!err) {
+      console.log(rows);
+    } else {
+      console.log(err);
+    }
+  });
+});
+
+
 app.use("/adminProduct", adminRouterProduct);
 app.use("/adminCategory", adminRouterCategory);
 app.use("/adminCustomer", adminRouterCustomer);
@@ -30,6 +46,7 @@ app.use("/adminSeller", adminRouterSeller);
 app.use("/adminOrder", adminRouterOrder);
 app.use("/adminRating", adminRouterRating);
 app.use("/adminRevenue", adminRouterRevenue);
+
 
 const PORT = 5000 || process.env.PORT;
 app.listen(PORT, () => {
