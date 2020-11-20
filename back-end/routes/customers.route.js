@@ -5,6 +5,7 @@ const { discounted,newProducts,freeDelivery } = require('../controllers/customer
 const {customerOrders, addOrder} = require('../controllers/customers_controllers/orders_controller')    
 const {addSoldItem } = require('../controllers/customers_controllers/SoldItem_controller')
 const {customerRating } = require('../controllers/customers_controllers/rating.controller')
+
 // View all products
 customersRouter.get("/products", viewAllProducts);
 
