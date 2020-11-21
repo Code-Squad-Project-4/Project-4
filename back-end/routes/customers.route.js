@@ -1,4 +1,6 @@
-const customersRouter = require("express").Router();
+// const customersRouter = require("express").Router();
+const express = require("express");
+const customersRouter = express.Router();
 
 const {viewAllProducts,productDetails,viewCategories,viewProducts,searchProducts}= require('../controllers/customers_controllers/products_controller')
 const { discounted,newProducts,freeDelivery } = require('../controllers/customers_controllers/offers_controller') 

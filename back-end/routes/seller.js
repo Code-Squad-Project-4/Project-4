@@ -1,5 +1,5 @@
 const express = require("express");
-const mainRouter = express.Router();
+const sellerRouter = express.Router();
 const {getUserURL,
   getCurrentMonthlySales,
   totalNumberOfItemsAvailable,
@@ -12,17 +12,17 @@ const {getUserURL,
   addProduct,
   salesHistory} = require("../controllers/seller-account-controller");
 
-   mainRouter.get("/logo_url/:id", getUserURL)
-   mainRouter.get("/monthly_sales/:id", getCurrentMonthlySales)
-   mainRouter.get("/items_available/:id", totalNumberOfItemsAvailable)
-   mainRouter.get("/items_sold/:id", totalNumberOfItemsSold)
-   mainRouter.get("/rating/:id", sellerRating)
-   mainRouter.get("/products/:id", getAllMyProducts)
-   mainRouter.put("/products/update/:id", updateProduct)
-   mainRouter.put("/products/hide/:id", hideProduct) //send {seller_id : id} in body and customer id in params
-   mainRouter.put("/products/show/:id", showProduct) //send {seller_id : id} in body and customer id in params
-   mainRouter.post("/products/add/:id", addProduct)
-   mainRouter.get("/sales_history/:id", salesHistory)
+  sellerRouter.get("/logo_url/:id", getUserURL)
+  sellerRouter.get("/monthly_sales/:id", getCurrentMonthlySales)
+  sellerRouter.get("/items_available/:id", totalNumberOfItemsAvailable)
+  sellerRouter.get("/items_sold/:id", totalNumberOfItemsSold)
+  sellerRouter.get("/rating/:id", sellerRating)
+  sellerRouter.get("/products/:id", getAllMyProducts)
+  sellerRouter.put("/products/update/:id", updateProduct)
+  sellerRouter.put("/products/hide/:id", hideProduct) //send {seller_id : id} in body and customer id in params
+  sellerRouter.put("/products/show/:id", showProduct) //send {seller_id : id} in body and customer id in params
+  sellerRouter.post("/products/add/:id", addProduct)
+  sellerRouter.get("/sales_history/:id", salesHistory)
    
 
 
@@ -31,4 +31,4 @@ const {getUserURL,
 //   res.json("HELLO WORLD");
 // });
 
-module.exports = mainRouter;
+module.exports = sellerRouter;

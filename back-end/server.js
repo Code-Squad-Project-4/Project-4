@@ -1,10 +1,11 @@
 const express = require("express");
 require("dotenv").config();
 const mainRouter = require("./routes/main-route");
+const sellerRouter = require("./routes/seller");
 
 
 const loginRouter = require("./routes/login-r");
-const cors = require("cors");
+// const cors = require("cors");
 
 
 const adminRouterProduct = require("./routes/admin_routes/product_route");
@@ -22,7 +23,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use("/seller", mainRouter);
+app.use("/seller", sellerRouter);
 app.use(mainRouter);
 app.use(loginRouter);
 

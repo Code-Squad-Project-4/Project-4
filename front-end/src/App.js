@@ -8,8 +8,8 @@ import {
 } from 'react-router-dom'; 
 
 import './App.css';
-import axios from 'axios';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+// import axios from 'axios';
+// import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 import NavBar from "./components/NavBar";
 import Home from "./components/Home";
@@ -21,6 +21,7 @@ import Product from "./components/Product";
 import CategoriesItem from "./components/CategoriesItem";
 import Category from "./components/Category";
 import AppSeller from './AppSeller.js'
+import LoginApp from './components/LoginApp'
 
 const App = (props) => {
   const [products, setProducts] = useState([]);
@@ -39,8 +40,10 @@ const App = (props) => {
   ]);
 
   const getAllProducts = async () => {
+    console.log("getAllProducts shehadeh called :")
     try {
-      const res = await axios.get('http://localhost:5000/products')
+      const res = await axios.get('http://localhost:5000/customer/products')
+      
       await setProducts(res.data);
     }
     catch (err) {
@@ -50,7 +53,7 @@ const App = (props) => {
 
   const oneProduct = async (id) => {
     try {
-      const res = await axios.get(`http://localhost:5000/product/${id}`)
+      const res = await axios.get(`http://localhost:5000/customer/product/${id}`)
       await setProduct(res.data);
     }
     catch (err) {
@@ -60,7 +63,7 @@ const App = (props) => {
 
   const discount = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/discounted')
+      const res = await axios.get('http://localhost:5000/customer/discounted')
       await setDiscountedProducts(res.data);
     }
     catch (err) {
@@ -70,7 +73,7 @@ const App = (props) => {
 
   const searchProducts = async (i) => {
     try {
-      const res = await axios.get(`http://localhost:5000/searchProducts/${i}`)
+      const res = await axios.get(`http://localhost:5000/customer/searchProducts/${i}`)
       if (res.data.length) {
         await setSearchP(res.data);
       } else {
@@ -84,7 +87,7 @@ const App = (props) => {
 
   const getCategories = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/categories')
+      const res = await axios.get('http://localhost:5000/customer/categories')
       await setCategories(res.data);
     }
     catch (err) {
@@ -94,7 +97,7 @@ const App = (props) => {
 
   const productsCategory = async (id) => {
     try {
-      const res = await axios.get(`http://localhost:5000/categories/${id}`)
+      const res = await axios.get(`http://localhost:5000/customer/categories/${id}`)
       await setCategory(res.data);
     }
     catch (err) {
@@ -104,7 +107,7 @@ const App = (props) => {
 
   const getFreeProducts = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/freeDelivery')
+      const res = await axios.get('http://localhost:5000/customer/freeDelivery')
       console.log('res.data.free :', res.data)
       await setFree(res.data);
     }
@@ -143,7 +146,7 @@ const App = (props) => {
       <Route path="/product/:id" render={(props) => <Product {...props} products={products} />} />
       {/* <Route path="/category/:i" render={(props) => <Category {...props} />} /> */}
       <Route path="/category/:i" render={(props) => <Category {...props} category={category} />} />
-      <Route exact path="/" render={(props) => <LoginApp />} />
+      <Route exact path="/login" render={(props) => <LoginApp />} />
       <Route path ="/seller" render= {(props) =><AppSeller/>} />
 
       {/* <CategoriesItem setUsername={setCategory} /> */}
