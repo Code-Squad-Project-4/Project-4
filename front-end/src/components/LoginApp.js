@@ -6,7 +6,7 @@ import { Register } from '../components/Register';
 import { Login } from '../components/Login';
 
 // Class component
-export  class LoginApp extends Component {
+export default class LoginApp extends Component {
   constructor(props) {
     super(props);
     this.state = {
